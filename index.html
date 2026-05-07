@@ -2,30 +2,66 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta http-equiv="refresh" content="0; url=https://www.google.fr/">
-  <title>Redirection...</title>
-  <script>
-    // Lien de destination — modifie uniquement cette ligne
-    const DESTINATION = "https://www.google.fr/";
-    window.location.replace(DESTINATION);
-  </script>
+  <title>Redirection</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: sans-serif;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      margin: 0;
-      background: #f5f5f5;
-      color: #555;
+      background: #0f0f0f;
+      font-family: 'Georgia', serif;
     }
+    .card { text-align: center; padding: 3rem 2rem; }
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 3px solid #333;
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 2rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    p { color: #888; font-size: 1rem; letter-spacing: 0.05em; }
+    #fallback {
+      display: none;
+      margin-top: 1.5rem;
+      padding: 0.75rem 2rem;
+      background: #fff;
+      color: #0f0f0f;
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      border-radius: 2px;
+    }
+    #fallback:hover { background: #ddd; }
   </style>
 </head>
 <body>
-  <p>Redirection en cours… <a href="https://www.google.fr/">Cliquez ici</a> si rien ne se passe.</p>
+  <div class="card">
+    <div class="spinner"></div>
+    <p>Redirection en cours…</p>
+    <a id="fallback" href="#">Continuer →</a>
+  </div>
+  <script>
+    // ✏️ MODIFIEZ UNIQUEMENT CETTE LIGNE
+    const DESTINATION = "https://www.netflix.com";
+
+    // Affiche le lien de secours après 2s
+    setTimeout(() => {
+      const link = document.getElementById("fallback");
+      link.href = DESTINATION;
+      link.style.display = "inline-block";
+    }, 2000);
+
+    // Redirige immédiatement via JS (non mis en cache par le navigateur)
+    window.location.href = DESTINATION;
+  </script>
 </body>
 </html>
