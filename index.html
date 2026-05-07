@@ -8,21 +8,15 @@
 <body>
   <script>
     // ✏️ MODIFIEZ UNIQUEMENT CETTE LIGNE
-    const DESTINATION = "https://fr.search.yahoo.com/?fr=altavista";
+    const DESTINATION = "https://www.deezer.com";
  
-    // Ajoute un timestamp unique à l'URL de la page elle-même
-    // pour forcer Chrome à ne pas utiliser le cache
     const currentUrl = new URL(window.location.href);
     if (!currentUrl.searchParams.has("_t")) {
       currentUrl.searchParams.set("_t", Date.now());
       window.location.replace(currentUrl.toString());
     } else {
-      // Une fois la page rechargée avec le timestamp, on redirige
       window.location.replace(DESTINATION);
     }
   </script>
-  <noscript>
-    <meta http-equiv="refresh" content="0; url=https://fr.search.yahoo.com/?fr=altavista">
-  </noscript>
 </body>
 </html>
