@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirection</title>
-</head>
-<body>
-  <script>
-    // MODIFIEZ UNIQUEMENT CETTE LIGNE
-    const DESTINATION = "https://share.weropay.eu/p/1/s/bA4ln?a=100&c=EUR";
- 
-    const currentUrl = new URL(window.location.href);
-    if (!currentUrl.searchParams.has("_t")) {
-      currentUrl.searchParams.set("_t", Date.now());
-      window.location.replace(currentUrl.toString());
-    } else {
-      window.location.replace(DESTINATION);
-    }
-  </script>
-</body>
-</html>
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Redirection</title></head><body><script>
+// MODIFIEZ UNIQUEMENT CETTE LIGNE
+const DESTINATION = "https://www.google.fr";
+
+const u = new URL(window.location.href);
+if (!u.searchParams.has("_t")) { u.searchParams.set("_t", Date.now()); window.location.replace(u.toString()); }
+else { window.location.replace(DESTINATION); }
+</script></body></html>
